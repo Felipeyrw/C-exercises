@@ -42,10 +42,34 @@ int main()
                 printf("Insira o valor do raio da esfera.");
                 scanf("%f", &raio);
 
-                resultado = calcula_volume_esfera(raio);
+                resultado = Esfera(raio);
                 printf("O volume da esfera é %f", resultado); break;
-                case 2:  verifica_sinal_numero(); break;
-                case 3:  divide_numeros(); break;
+                case 2:  
+                int valor;
+
+                printf("Insira o valor inteiro.");
+                scanf("%d", &valor);
+
+                Verifica(valor); 
+                break;
+                case 3:  
+
+                int valor1, valor2, result2;
+
+                printf("Insira o numerador inteiro.");
+                scanf("%d", &valor1);
+
+                do {
+                    printf("Insira o denominador inteiro.");
+                    scanf("%d", &valor2);
+                    if(valor2> valor1) {
+                        printf("Insira um valor válido para divisão igual ou acima de 1.");
+                    }
+                } while (valor2>valor1);
+
+                result2 = Divisão(valor1, valor2);
+                printf("O resultado da divisão é %d", result2); 
+                break;
                 case 4:  reajuste_salarial_simples(); break;
                 case 5:  verifica_par_impar(); break;
                 case 6:  reajuste_salarial_k_funcionarios(); break;
@@ -63,11 +87,15 @@ int main()
                 default: printf("Opção inválida!\n"); break;
             }
             
-            if (opcao != 0) {
-                printf("\nPressione Enter para voltar ao menu...");
-                getchar(); // Limpa o buffer do scanf
-                getchar(); // Aguarda o Enter
-            }
+        if (opcao != 0) {
+            printf("\nPressione Enter para voltar ao menu...");
+            // Limpa o buffer completamente
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF); 
+            // Agora sim, espera o Enter do usuário
+            getchar(); 
+        }
+
         } else {
             printf("Erro: Digite um número válido!\n");
             while (getchar() != '\n'); // Limpa buffer de entrada

@@ -3,14 +3,24 @@
 #include <math.h>
 #include <stdbool.h>
 
-float calcula_volume_esfera(float raio) {
-    return (4/3*3.14*pow(raio,3));
+float Esfera(float raio) {
+    return (4.0/3.0*3.14*pow(raio,3));
 }
 
-void verifica_sinal_numero() {
+void Verifica(int valor) {
+    if (valor == 0) {
+        printf("O valor é igual a zero.");
+    } 
+    if (valor > 0) {
+        printf("O valor é positivo.");
+    }
+    if (valor < 0) {
+        printf("O valor é negativo.");
+    }
 }
 
-void divide_numeros() {
+int Divisão(int um, int dois) {
+    return um/dois;
 }
 
 void reajuste_salarial_simples() {
